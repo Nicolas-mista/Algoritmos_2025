@@ -59,7 +59,7 @@ def insertar_dataset(arbol, rows):
 
 
 
-# a) Listado inorden de las criaturas y quien las derrotó
+# a) listado inorden de las criaturas y quien las derrotó
 
 def listado_inorden(arbol):
     def __rec(root):
@@ -73,7 +73,7 @@ def listado_inorden(arbol):
 
 
 
-# b) Cargar y mostrar una breve descripción por criatura
+# b) cargar y mostrar una breve descripción por criatura
 
 def agregar_descripcion(arbol, descripciones):
     print("#b) Agregando descripciones a criaturas...\n")
@@ -91,7 +91,7 @@ def agregar_descripcion(arbol, descripciones):
 
 
 
-# c) Mostrar toda la información de la criatura Talos
+# c) mostrar toda la información de la criatura talos
 
 def mostrar_info_talos(arbol):
     pos = arbol.search("Talos")
@@ -102,7 +102,7 @@ def mostrar_info_talos(arbol):
 
 
 
-# d) Determinar los 3 héroes o dioses con más derrotas
+# d) determinar los 3 heroes o dioses con mas derrotas
 
 def tres_mayores_derrotadores(arbol):
     ranking = {}
@@ -115,7 +115,7 @@ def tres_mayores_derrotadores(arbol):
 
 
 
-# e) Listar las criaturas derrotadas por un héroe
+# e) listar las criaturas derrotadas por un heroe
 
 def criaturas_derrotadas_por(arbol, nombre_heroe):
     resultados = []
@@ -130,7 +130,7 @@ def criaturas_derrotadas_por(arbol, nombre_heroe):
 
 
 
-# f) Listar criaturas que no han sido derrotadas
+# f) listar criaturas que no han sido derrotadas
 
 def no_derrotadas(arbol):
     resultados = []
@@ -145,7 +145,7 @@ def no_derrotadas(arbol):
 
 
 
-# g) Mostrar campo “capturada” en cada criatura
+# g) mostrar campo “capturada” en cada criatura
 
 def mostrar_capturadas(arbol):
     def __rec(root):
@@ -157,20 +157,20 @@ def mostrar_capturadas(arbol):
 
 
 
-# h) Modificar nodos capturados por Heracles
+# h) modificar nodos capturados por heracles
 
 def marcar_capturadas_por_heracles(arbol):
-    print("#h) Marcando criaturas capturadas por Heracles...\n")
-    for n in ["Cerbero", "Toro de Creta", "Cierva de Cerinea", "Jabalí de Erimanto"]:
+    print("#h) Marcando criaturas capturadas por heracles...\n")
+    for n in ["cerbero", "toro de creta", "cierva de cerinea", "jabali de erimanto"]:
         nodo = arbol.search(n)
         if nodo:
-            nodo.other_values["capturada"] = "Heracles"
-            print(f"Marcada '{n}' como capturada por Heracles.")
+            nodo.other_values["capturada"] = "heracles"
+            print(f"marcada '{n}' como capturada por heracles.")
     print()
 
 
 
-# i) Búsqueda por coincidencia
+# i) busqueda por coincidencia
 
 def busqueda_por_coincidencia(arbol, texto):
     texto = texto.lower()
@@ -185,7 +185,7 @@ def busqueda_por_coincidencia(arbol, texto):
     return matches
 
 
-# j) Eliminar al Basilisco y a las Sirenas
+# j) eliminar al basilisco y a las Sirenas
 
 def eliminar_criaturas(arbol, nombres):
     for n in nombres:
@@ -195,28 +195,28 @@ def eliminar_criaturas(arbol, nombres):
 
 
 
-# k) Modificar las Aves del Estínfalo (Heracles derrotó varias)
+# k) modificar las aves del estinfalo (heracles derroto varias)
 
 def modificar_aves_estinfalo(arbol):
-    nodo = arbol.search("Aves del Estínfalo")
+    nodo = arbol.search("aves del estinfalo")
     if nodo:
-        nodo.other_values["derrotado_por"] = "Heracles (varias)"
+        nodo.other_values["derrotado_por"] = "heracles (varias)"
         nodo.other_values["descripcion"] += " — Heracles derrotó a varias de estas aves."
-        print("Aves del Estínfalo modificadas.")
+        print("Aves del Estinfalo modificadas.")
 
 
 
-# l) Modificar el nombre de Ladón a Dragón Ladón
+# l) modificar el nombre de Ladon a dragon ladon
 
 def renombrar_ladon(arbol):
-    eliminado, other = arbol.delete("Ladón")
+    eliminado, other = arbol.delete("ladon")
     if eliminado:
-        arbol.insert("Dragón Ladón", other)
-        print("Ladón renombrado a Dragón Ladón")
+        arbol.insert("dragon ladon", other)
+        print("ladon renombrado a dragon ladon")
 
 
 
-# m) Listado por nivel del árbol
+# m) listado por nivel del arbol
 
 def listado_por_nivel(arbol):
     q = Queue()
